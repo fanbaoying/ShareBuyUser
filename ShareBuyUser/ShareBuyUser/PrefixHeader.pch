@@ -1,0 +1,87 @@
+//
+//  PrefixHeader.pch
+//  ShareBuyUser
+//
+//  Created by soldier on 16/8/8.
+//  Copyright © 2016年 ShareBuy. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define     kScreenWidth                [UIScreen mainScreen].bounds.size.width
+#define     kScreenHeight               [UIScreen mainScreen].bounds.size.height
+
+#define kNavigationBarHight 64
+#define kTabbarHight 49
+
+
+#define iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0 ? YES : NO)
+
+#define iPhone6 (kScreenWidth == 375?YES:NO)
+#define iPhone6p (kScreenWidth >375?YES:NO)
+
+#define     UIColorFromHex(hexrgb, al)        [UIColor colorWithRed:((float)((hexrgb & 0xFF0000) >> 16))/255.0 green:((float)((hexrgb & 0xFF00) >> 8))/255.0 blue:((float)(hexrgb & 0xFF))/255.0 alpha:al]
+
+#define UIFontPingFangLight(s) (iOS9?[UIFont fontWithName:@"PingFangSC-Light" size:s]:[UIFont systemFontOfSize:s])
+#define UIFontPingFangMedium(s) (iOS9?[UIFont fontWithName:@"PingFangSC-Medium" size:s]:[UIFont systemFontOfSize:s])
+#define UIFontPingFangRegular(s) (iOS9?[UIFont fontWithName:@"PingFangSC-Regular" size:s]:[UIFont systemFontOfSize:s])
+
+#define kWR kScreenWidth/320.0
+
+//Color
+#define kMainColor                  UIColorFromHex(0xfe5e3a, 1)
+
+//#define BASE_URL                            @"http://112.64.173.178:20165/shareApp"
+#define BASE_URL                            @"http://192.168.10.239:8080/shareApp"
+
+//#define BASE_URL                            @"http://10.58.160.110:8080/shareApp"
+
+//#define BASE_URL                            @"http://10.58.160.111:8080/shareApp"
+
+//#define BASE_URL                            @"http://10.58.160.112:8080/shareApp"
+/**
+ *  没连网错误提示
+ */
+#define     DEF_OFFLINE_ERROR               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前网络出现问题，请查看网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil]; [alertView show];
+
+/**
+ *  服务器错误提示
+ */
+#define     DEF_SERVER_ERROR                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无法连接服务器, 请稍后再试." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil]; [alertView show];
+
+#import "BaseTabBarController.h"
+#import "BaseNavController.h"
+#import "ServerUrl.h"
+#import "UIViewController+HUD.h"
+//#import "UserInfoModel.h"
+#import "MJRefresh.h"
+#import "DDPBLL.h"
+#import "TSRegularExpressionUtil.h"
+#import "UserModel.h"
+#import "ReadWriteSandbox.h"
+#import "LoginViewController.h"
+
+
+//WeiXin_appid
+#define WeiXin_appid  @"wxb9f996ff216d0c07"
+#define WeiXin_merchantid @"1387797502"
+#define WeiXin_privatekey @"b75b1c957ffcc391bca1f249fa6c9ccb"
+#define WeiXin_APIKey    @"b75b1c957ffcc391bca1f249fa6c9ccb"
+
+
+
+//支付宝合作身份者id，以2088开头的16位纯数字
+#define PartnerID @"2088421731673507"
+//支付宝收款支付宝账号
+#define SellerID  @"dou@dou-bao.com"
+//支付宝回调URLScheme
+#define kAliPayURLScheme @"AliPayShareBuyUser"
+
+//商户私钥，自助生成
+#define PartnerPrivKey @"MIICWwIBAAKBgQDHPitI9fkoYLtDPnR/DJKzerFyiiOL4firqhBJkKhXdq5ztOLUf4pQ6XUMLC1Judh+LUYlJ+grv1oCWV9AzNOZImCJS69kexS7lZzJL0TWHZSYgY6JrnepcDVHstHHrmtoe+VfhNm0vB/44ThfsQ9uOzvlxvKeaJBR6/OnApppcwIDAQABAoGAbizioqXh8YIMC1Mt+FNri/P8y+m3XlLGv6Z6+zMS48qtDS6pf/hG9BcksmZ7ZJlwLdW7RDCdIhPeIg5prduV5c3htuu64+3wzushICaYRli3BmljHDuRKNPzQb6Y6tsq08pV02wM3KoEM4aIZDecSBkFYWDiZvkmmQpmPvYJKwECQQDw3B19FkSA2j680un+Oax5hUmWkukBA/7uSr36QWWfKYqjytH2jVh4tzEdPywj2WryzTsfnCK39GB5uZQaUf8LAkEA08Rb436t/JGJ35HYWwd0V8l3JtGK/HlmNGi+8ToUKDIM8FYFAl9Jc+P+gagzNmeh7nuXSEH4Yxd2lO4rHu3gOQJAGOcpRV2gB5KJGgzUlKxx4L6fNSpLXQeEvC6OJenND//DjdvSiaNjmleWhGebsLkyDZianFIQZOSndO5zGaWQsQJAN3y35wAGbqtjyOTaH9/wKCBtzAoTtNvKX+kiPurM5UtYAJFJdrmo8WjIAwkjghndYDOaDCDdCHnZZGSTf+MsYQJAM+PHYnhnzqUCfH/B0uN3SHZ87zhvI/dvsJW1Emke52rK3w2YHQqS3I5BYgYjgUwP3pZlH5/eltDbuZ7ouQzktg=="
+
+#endif /* PrefixHeader_pch */
